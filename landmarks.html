@@ -41,7 +41,7 @@
         </div>
         <div id="contentwrapper">
             <div id="lrg_content">
-                <div id="leftcolumn" role="navigation" aria-labelledby="networking-list-heading">
+                <div id="leftcolumn" role="navigation" aria-label="Networking list and People nline">
                     <a id="menu"></a>
                     <div id="side-menu" aria-label="left side menu" accesskey="0">
                         <br/>
@@ -58,7 +58,7 @@
                             <div class="divider"></div>
                         </div>
                         <br/>
-                        <h2 class="box"><span>People Online</span></h2>
+                        <h2 class="box" id="people-online"><span>People Online</span></h2>
                         <div class="box" id="menu_UsersOnline">
                             <ul style="padding: 0px; list-style: none;">
                                 <li style="padding: 3px 0px;" id="mylogin">No one logged in</li>
@@ -77,9 +77,9 @@
                 <a id="top"></a>
 
                 <div class="profile" role="main">
-                    <h2>Join our community</h2>
+                    <h2 id="form-heading">Join our community</h2>
                     <div id="feedback">&nbsp;</div>
-                    <form id="join_form" role="form">
+                    <form id="join_form" role="form" aria-labelledby="form-heading">
                         <dl>
                             <dt>
 <img src="images/required.gif" height="14" width="14" alt="Required Field" /> denotes required fields.<br />
@@ -219,7 +219,7 @@
                     <br style="width:100%;clear:both;" />
 
                 </div>
-                <!-- //end profile and role="main" --> 
+                <!-- //end profile and role="main" -->
                 <div id="advertising" role="complementary">
                     <h2>Advertising</h2>
                     <div>
