@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Keyboard Results button bug</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--
+    <meta name="description" content="test">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+-->
+    <style>
+        html,
+        body {
+            margin: 20px;
+            font-family: sans-serif;
+        }
+
+        #button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 15px;
+            background-color: #f76;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+    </style>
+
+
+    <!--
+    <script type="text/javascript" src="join.lib.js"></script>
+    <script type="text/javascript" src="join.js"></script>
+-->
+</head>
+
+<body>
+    <p>Click on the DIV below, or use Tab key to move focus to it and press Enter.</p>
+    <p><b>How can this be debugged:</b> The visual output is always correct, but ChromeVox does NOT always read the correct new text added, especially after about 10 events (and sometimes as early as the 3rd or 4th event). </p>
+    <p>I added an event counter to see which text the screenreader reads. An example of an error: Sometimes on a keyboard event on event number 11, ChromeVox will read, "action triggered by mouse: 5." </p>
+    <div id="button" tabindex="0" role="button">Click Me</div>
+    <div id="message" aria-live="assertive" aria-atomic="false"></div>
+    <script type="text/javascript">
+        var btn, msg, clickAndEnterCount;
+
+        btn = document.getElementById('button');
+        msg = document.getElementById('message');
+        clickAndEnterCount = 0;
+
+        btn.addEventListener('click', handleEvents, false);
+        btn.addEventListener('keydown', handleEvents, false);
+
+        function handleEvents(evt) {
+            if (evt.type === 'click' || (evt.type === 'keydown' && evt.keyCode === 13)) {
+                clickAndEnterCount++;
+                console.log("clickAndEnterCount: " + clickAndEnterCount);
+                console.log("inside if evt.type: " + evt.type);
+                msg.innerHTML += 'action triggered by ' + (evt.type === 'click' ? 'mouse: ' + clickAndEnterCount : 'keyboard: ' + clickAndEnterCount) + '<br>';
+            }
+        }
+    </script>
+</body>
+
+</html>
