@@ -37,7 +37,7 @@
 <body>
     <p>Click on the DIV below, or use Tab key to move focus to it and press Enter.</p>
     <p><b>How can this be debugged:</b> The visual output is always correct, but ChromeVox does NOT always read the correct new text added, especially after about 10 events (and sometimes as early as the 3rd or 4th event). </p>
-    <p>I added an event counter to see which text the screenreader reads. An example of an error: Sometimes on a keyboard event on event number 11, ChromeVox will read, "action triggered by mouse: 5." </p>
+    <p>I added an event counter to see which text the screenreader reads. An example of an error: Sometimes on a keyboard event on event number 11, ChromeVox will read, "action triggered by mouse: 5. That line is there in the message, and was a mouse event at that time, but why is ChromeVox not reading the latest part of the message?" </p>
     <div id="button" tabindex="0" role="button">Click Me</div>
     <div id="message" aria-live="assertive" aria-atomic="false"></div>
     <script type="text/javascript">
