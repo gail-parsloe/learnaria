@@ -15,7 +15,8 @@
             font-family: sans-serif;
         }
 
-        #button {
+        #button,
+        #button2 {
             display: inline-block;
             margin: 20px 0;
             padding: 10px 15px;
@@ -39,17 +40,23 @@
     <p><b>How can this be debugged:</b> The visual output is always correct, but ChromeVox does NOT always read the correct new text added, especially after about 10 events (and sometimes as early as the 3rd or 4th event). </p>
     <p>I added an event counter to see which text the screenreader reads. An example of an error: Sometimes on a keyboard event on event number 11, ChromeVox will read, "action triggered by mouse: 5. That line is there in the message, and was a mouse event at that time, but why is ChromeVox not reading the latest part of the message?" </p>
     <div id="button" tabindex="0" role="button">Click Me</div>
+    <div id="button2" tabindex="0" role="button">Click Me Improved</div>
+    <hr>
     <div id="message" aria-live="assertive" aria-atomic="false"></div>
     <script type="text/javascript">
-        var btn, msg, clickAndEnterCount;
+        var btn, btn2, msg, clickAndEnterCount, text, node;
 
         btn = document.getElementById('button');
+        btn2 = document.getElementById('button2');
         msg = document.getElementById('message');
         clickAndEnterCount = 0;
 
         btn.addEventListener('click', handleEvents, false);
         btn.addEventListener('keydown', handleEvents, false);
+        btn2.addEventListener('click', handleEventsImproved, false);
+        btn2.addEventListener('keydown', handleEventsImproved, false);
 
+        /*  This is the wrong way to do it. Igor Karasyov info: By using msg.innerHTML += '...' you effectively update the entire content of the 'message' div every time. That's confusing the screenreader.   */
         function handleEvents(evt) {
             if (evt.type === 'click' || (evt.type === 'keydown' && evt.keyCode === 13)) {
                 clickAndEnterCount++;
@@ -57,6 +64,19 @@
                 console.log("inside if evt.type: " + evt.type);
                 msg.innerHTML += 'action triggered by ' + (evt.type === 'click' ? 'mouse: ' + clickAndEnterCount : 'keyboard: ' + clickAndEnterCount) + '<br>';
             }
+        }
+
+        /*  This is a better way to do it: appending individual nodes */
+        function handleEventsImproved(evt) {
+            if (evt.type === 'click' || (evt.type === 'keydown' && evt.keyCode === 13)) {
+                clickAndEnterCount++;
+                var text = document.createTextNode('action triggered by ' + (evt.type === 'click' ? 'mouse: ' + clickAndEnterCount : 'keyboard: ' + clickAndEnterCount));
+                var node = document.createElement('div');
+                node.appendChild(text);
+                msg.appendChild(node);
+            }
+
+
         }
     </script>
 </body>
