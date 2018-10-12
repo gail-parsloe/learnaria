@@ -67,13 +67,14 @@
             </div>
             <!-- //end of the lrg_content -->
             <div id="contentcolumn">
-                <!-- aria-live="polite" is used to maximize compatibility (mdn dev recommendation) -->
-                <div id="message" role="status" aria-live="polite"></div>
+                <!-- Does this message ever get used? -->
+                <div id="message"></div>
                 <br style="clear:both;">
                 <a id="top"></a>
                 <div class="profile" role="main">
                     <h2 id="form-heading">Join our community</h2>
-                    <div id="feedback">&nbsp;</div>
+                    <!-- role="alert" gets added in dynamically", but ChromeVox is not reading it every time, so I added it here as well in case it's issue of timing. -->
+                    <div id="feedback" role="alert">&nbsp;</div>
                     <form id="join_form" role="form" aria-labelledby="form-heading">
                         <dl>
                             <dt>
