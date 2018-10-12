@@ -67,7 +67,8 @@
             </div>
             <!-- //end of the lrg_content -->
             <div id="contentcolumn">
-                <div id="message" role="status"></div>
+                <!-- aria-live="polite" is used to maximize compatibility (mdn dev recommendation) -->
+                <div id="message" role="status" aria-live="polite"></div>
                 <br style="clear:both;">
                 <a id="top"></a>
                 <div class="profile" role="main">
