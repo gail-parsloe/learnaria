@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="test">
     <link rel="stylesheet" href="styles.css" type="text/css">
-
     <script type="text/javascript" src="join.lib.js"></script>
     <script type="text/javascript" src="join.js"></script>
 </head>
@@ -14,13 +13,11 @@
 <body>
     <div id="top-bar">&nbsp; </div>
     <div class="page_wrapper">
-
         <div id="header" role="banner">
             <div id="course_title_container" style="left:1em;">
                 <h1 id="section-title">Our Community Website</h1>
             </div>
         </div>
-
         <div class="" style="z-index: auto; position: static; top: auto;" id="lrg_topnav">
             <div style="width: 100%;" id="topnavlistcontainer" aria-label="main navigation tabs" role="navigation">
                 <a name="main-nav" id="main-nav"></a>
@@ -34,7 +31,6 @@
                 </ul>
             </div>
         </div>
-
         <div class="logoutbar" role="search">&nbsp; <input type="text" class="input"><input type="submit" value="search"></div>
         <div class="crumbcontainer">
             <div id="breadcrumbs" tabindex="0" aria-label="breadcrumb links" role="navigation" aria-label="breadcrumbs">&nbsp;</div>
@@ -70,139 +66,133 @@
                 <!-- //end of the left column -->
             </div>
             <!-- //end of the lrg_content -->
-
             <div id="contentcolumn">
                 <div id="message"></div>
                 <br style="clear:both;">
                 <a id="top"></a>
-
                 <div class="profile" role="main">
                     <h2 id="form-heading">Join our community</h2>
                     <div id="feedback">&nbsp;</div>
                     <form id="join_form" role="form" aria-labelledby="form-heading">
                         <dl>
                             <dt>
-<img src="images/required.gif" height="14" width="14" alt="Required Field" /> denotes required fields.<br />
-</dt>
-                            <dd>
-                            </dd>
+                           <img src="images/required.gif" height="14" width="14" alt="Required Field" /> denotes required fields.<br />
+                        </dt>
+                            <dd></dd>
                             <dt>
-<label for="username">Username:</label><img src="images/required.gif"  alt="Required Field" class="img" />
-</dt>
-                            <dd><input id="username" class="input" type="text" value="" maxlength="30" size="20" name="username" aria-required="true" aria-describedby="username_error"><br />
+                           <label for="username">Username:</label><img src="images/required.gif"  alt="Required Field" class="img" />
+                        </dt>
+                            <dd>
+                                <input id="username" class="input" type="text" value="" maxlength="30" size="20" name="username" aria-required="true" aria-describedby="username_error"><br />
                                 <span id="username_error">&nbsp;</span><br />
                             </dd>
                             <dt>
-    <label for="password">Password:</label>
-    <img src="images/required.gif"  alt="Required Field" />
-</dt>
+                           <label for="password">Password:</label>
+                           <img src="images/required.gif"  alt="Required Field" />
+                        </dt>
                             <dd>
-                                <input type="text" name="password" size="20" id="password" value="" class="input" /><br />
+                                <input type="text" name="password" aria-required="true" size="20" id="password" value="" class="input" /><br />
                                 <span id="password_error">&nbsp;</span>
                             </dd>
                             <dt>
-    <label for="email">Email:</label>
-	<img src="images/required.gif" class="img" />
-</dt>
+                           <label for="email">Email:</label>
+                           <img src="images/required.gif" class="img" />
+                        </dt>
                             <dd>
-                                <input type="text" name="email" size="30" id="email" value="" class="input" /><br />
+                                <input type="text" name="email" aria-required="true" size="30" id="email" value="" class="input" /><br />
                                 <span id="email_error">&nbsp;</span>
                             </dd>
                             <dt>
-    <label for="fname">First Name:</label>
-</dt>
+                           <label for="fname">First Name:</label>
+                        </dt>
                             <dd>
                                 <input type="text" name="fname" size="20" id="fname" value="" class="input" />
                                 <span id="fname_error">&nbsp;</span>
                             </dd>
                             <dt>
-    <label for="lname">Last Name:</label>
-</dt>
+                           <label for="lname">Last Name:</label>
+                        </dt>
                             <dd>
                                 <input type="text" name="lname" size="20" id="lname" value="" class="input" />
                                 <span id="lname_error">&nbsp;</span>
                             </dd>
-
                             <dt>
-    <label for="org">Organization</label>:
-</dt>
+                           <label for="org">Organization</label>:
+                        </dt>
                             <dd>
                                 <input type="text" class="input" id="org" name="organization" value="" size="30" />
                                 <span id="org_error">&nbsp;</span>
                             </dd>
                             <dt>
-    <label for="address">Street Address</label>: 
-</dt>
+                           <label for="address">Street Address</label>: 
+                        </dt>
                             <dd>
                                 <textarea id="address" class="input" name="address" cols="35" rows="3"></textarea>
                                 <span id="address_error">&nbsp;</span>
                             </dd>
                             <dt>
-    <label for="city">City</label>: 
-</dt>
+                           <label for="city">City</label>: 
+                        </dt>
                             <dd>
                                 <input type="text" id="city" name="city" class="input" value="">
                                 <span id="city_error">&nbsp;</span>
                             </dd>
                             <dt>
-    <label for="country">Country</label>: 
-</dt>
+                           <label for="country">Country</label>: 
+                        </dt>
                             <dd>
                                 <select name="country" id="country">
-        <option value="ca">Canada</option>
-        <option value="usa">USA</option>
-    </select>
+                              <option value="ca">Canada</option>
+                              <option value="usa">USA</option>
+                           </select>
                                 <span id="country_error">&nbsp;</span>
                             </dd>
-
                             <dt>
-    <dt class="state_block">
-                <label for="state">State:</label>
-    </dt>
+                        <dt class="state_block">
+                           <label for="state">State:</label>
+                        </dt>
                             <dd class="state_block">
                                 <input type="text" name="state" id="state" maxlength="2" class="input" />
                                 <span id="state_error">&nbsp;</span>
                             </dd>
                             <dt class="state_block">   
-     <label for="zip">ZIP Code:</label>
-     </dt>
+                           <label for="zip">ZIP Code:</label>
+                        </dt>
                             <dd class="state_block">
                                 <input type="text" name="zip" id="zip" class="input" />
                                 <span id="zip_error">&nbsp;</span><br />
                             </dd>
-
                             <dt class="prov_block">
-    <label for="province">Province/Territory:</label>
-    </dt>
+                           <label for="province">Province/Territory:</label>
+                        </dt>
                             <dd class="prov_block">
                                 <select name="province" id="province" class="input">
-                        <option value="AB">Alberta</option>
-                        <option value="BC">British Columbia</option>
-                        <option value="MB">Manitoba</option>
-                        <option value="NB">New Brunswick</option>
-                        <option value="NL">Newfoundland and Labrador</option>
-                        <option value="NS">Nova Scotia</option>
-                        <option value="NU">Nunavut</option>
-                        <option value="NT">Northwest Territories</option>
-                        <option value="ON">Ontario</option>
-                        <option value="PE">Prince Edward Island</option>
-                        <option value="QC">Quebec</option>
-                        <option value="SK">Saskatchewan</option>
-                        <option value="YT">Yukon</option>
-                    </select>
+                              <option value="AB">Alberta</option>
+                              <option value="BC">British Columbia</option>
+                              <option value="MB">Manitoba</option>
+                              <option value="NB">New Brunswick</option>
+                              <option value="NL">Newfoundland and Labrador</option>
+                              <option value="NS">Nova Scotia</option>
+                              <option value="NU">Nunavut</option>
+                              <option value="NT">Northwest Territories</option>
+                              <option value="ON">Ontario</option>
+                              <option value="PE">Prince Edward Island</option>
+                              <option value="QC">Quebec</option>
+                              <option value="SK">Saskatchewan</option>
+                              <option value="YT">Yukon</option>
+                           </select>
                                 <span id="province_error">&nbsp;</span>
                             </dd>
                             <dt class="prov_block">
-                <label for="postal">Postal Code:</label>
-    </dt>
+                           <label for="postal">Postal Code:</label>
+                        </dt>
                             <dd class="prov_block">
                                 <input type="text" name="postal" id="postal" class="input" />
                                 <span id="postal_error">&nbsp;</span><br />
                             </dd>
-
                             <dt>
-    <label for="tele">Telephone</label>:
-</dt>
+                           <label for="tele">Telephone</label>:
+                        </dt>
                             <dd>
                                 <input type="text" id="tele" name="telephone" class="input" value="">
                                 <span id="tele_error">&nbsp;</span>
@@ -215,9 +205,7 @@
                         </div>
                     </form>
                     <br style="clear:both;" />
-
                     <br style="width:100%;clear:both;" />
-
                 </div>
                 <!-- //end profile and role="main" -->
                 <div id="advertising" role="complementary">
@@ -237,7 +225,6 @@
     <!-- //end page_wrapper -->
     <div id="footer" role="contentinfo"> Copyright &copy; <a href="" class="fake">Chang School.</a>
     </div>
-
 </body>
 
 </html>
