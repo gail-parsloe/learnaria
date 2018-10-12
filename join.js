@@ -2,7 +2,8 @@ var joinForm;
 var joinClick = function () {
     $s("join").blur();
     if ( joinForm.validateForm() ) {
-        alert("Please correct the errors on the page.");
+        // ChromeVox doesn't properly handle the alert. Greg Gay: 'Not reading the dialog is a ChromeVox bug.'. 
+        // alert("Please correct the errors on the page.");
     } else {
         document.location.href = '#top';
         $s("feedback").focus();
