@@ -19,10 +19,25 @@
             });
         });
     </script>
+    <style>
+        .hidden {
+            /* Hide content visually, but not from screenreader. Source of this style: https://webaim.org/techniques/css/invisiblecontent/ */
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+
 </head>
 
 <body>
     <main>
+        <div class="hidden" id="screenreader-instructions" aria-live="polite">
+            <p>This text is visually hidden when it has the class="hidden".</p>
+        </div>
         <a href="index.html">&larr; Index</a>
         <h1>Suggestion Box</h1>
         <div class="ui-widget">
@@ -31,6 +46,11 @@
         <p>Lorem ipsum dolor sit, consectetur adipiscing elit. Sed blandit pellentesque felis eget venenatis. Duis venenatis consectetur lacinia. Proin elementum eu justo vel dignissim.</p>
 
     </main>
+    <script>
+        $("#country").focus(function() {
+            $("#screenreader-instructions").text('As you start typing the application might suggest similar search terms. Use up and down arrow keys to select a suggested search string.');
+        });
+    </script>
 
 </body>
 
