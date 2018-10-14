@@ -35,8 +35,8 @@
 
 <body>
     <main>
-        <div class="hidden" id="screenreader-instructions" aria-live="polite">
-            <p>This text is visually hidden when it has the class="hidden".</p>
+        <div class="hidden2" id="screenreader-instructions" aria-live="polite">
+            <p>This text can be visually hidden by using class="hidden".</p>
         </div>
         <a href="index.html">&larr; Index</a>
         <h1>Suggestion Box</h1>
@@ -48,6 +48,7 @@
     </main>
     <script>
         $("#country").focus(function() {
+            console.log("focus on #country just occurred")
             $("#screenreader-instructions").text('As you start typing the application might suggest similar search terms. Use up and down arrow keys to select a suggested search string.');
         });
     </script>
