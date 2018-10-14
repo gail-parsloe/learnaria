@@ -594,3 +594,13 @@ div .divider {
 		width:90%
 	}
 }
+
+/* from the jquery css file */
+table {
+	font-size: 1em;
+}
+
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+/* end from the jquery css file */
