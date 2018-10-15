@@ -1,15 +1,14 @@
 ;
 (function ($, window, document, undefined) {
 
-    var debug = true,
-        pluginName = "ik_suggest",
+    var pluginName = "ik_suggest",
         defaults = {
-            'instructions': "As you start typing the application might suggest similar search terms. Use up and down arrow keys to select a suggested search string.",
             'minLength': 2,
             'maxResults': 10,
             'source': []
 
         };
+
     /**
      * @constructs Plugin
      * @param {Object} element - Current DOM element from selected collection.
@@ -34,13 +33,9 @@
         var $elem, plugin;
 
         plugin = this;
-        /* create a <div> to use as a live region. aria-live="polite" announces the list usage instructions defined above when the text field receives focus. */
+
         plugin.notify = $('<div/>') // add hidden live region to be used by screen readers
-            .addClass('ik_readersonly')
-            .attr({
-                'role': 'region',
-                'aria-live': 'polite'
-            })
+            .addClass('ik_readersonly');
 
         $elem = plugin.element
             .attr({
@@ -74,11 +69,10 @@
      * @param {object} event.data.plugin - Reference to plugin.
      */
     Plugin.prototype.onFocus = function (event) {
+
         var plugin;
 
         plugin = event.data.plugin;
-        /* The notify function produces a live region with the instruction text, that reads automatically when a screen reader encounters suggestion box text field */
-        plugin.notify.text(plugin.options.instructions);
 
     };
 
@@ -124,14 +118,16 @@
      * @param {object} event.data.plugin - Reference to plugin.
      */
     Plugin.prototype.onKeyUp = function (event) {
+
         var plugin, $me, suggestions, selected, msg;
-        // the ik_suggest plugin
+
         plugin = event.data.plugin;
-        // the currentTarget is the input field with id="country"
         $me = $(event.currentTarget);
+
         plugin.list.empty();
 
         suggestions = plugin.getSuggestions(plugin.options.source, $me.val());
+
         if (suggestions.length > 1) {
             for (var i = 0, l = suggestions.length; i < l; i++) {
                 $('<li/>').html(suggestions[i])
@@ -144,43 +140,7 @@
         } else {
             plugin.list.hide();
         }
-        switch (event.keyCode) {
-            case ik_utils.keys.down: // select next suggestion from list   
-                selected = plugin.list.find('.selected');
-                if (selected.length) {
-                    msg = selected.removeClass('selected').next().addClass('selected').text();
-                } else {
-                    premsg = plugin.list.find('li:first').text();
-                    msg = plugin.list.find('li:first').addClass('selected').text();
-                }
-                plugin.notify.text(msg); // add suggestion text to live region to be read by screen reader
-                break;
-            case ik_utils.keys.up: // select previous suggestion from list
-                selected = plugin.list.find('.selected');
-                if (selected.length) {
-                    msg = selected.removeClass('selected').prev().addClass('selected').text();
-                }
-                plugin.notify.text(msg); // add suggestion text to live region to be read by screen reader    
-                break;
 
-            default: // get suggestions based on user input
-                plugin.list.empty();
-                suggestions = plugin.getSuggestions(plugin.options.source, $me.val());
-                if (suggestions.length > 1) {
-                    for (var i = 0, l = suggestions.length; i < l; i++) {
-                        $('<li/>').html(suggestions[i])
-                            .on('click', {
-                                'plugin': plugin
-                            }, plugin.onOptionClick) // add click event handler
-                            .appendTo(plugin.list);
-                    }
-                    plugin.list.show();
-                } else {
-                    plugin.list.hide();
-                }
-
-                break;
-        }
     };
 
     /** 
@@ -247,9 +207,7 @@
                 }
             }
         }
-        if (r.length > 1) { // add instructions to hidden live area
-            this.notify.text('Suggestions are available for this field. Use up and down arrows to select a suggestion and enter key to use it.');
-        }
+
         return r;
 
     };
