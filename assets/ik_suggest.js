@@ -124,11 +124,6 @@
      * @param {object} event.data.plugin - Reference to plugin.
      */
     Plugin.prototype.onKeyUp = function (event) {
-        if (debug) console.log("inside onkeyup function: ");
-        if (debug) console.log("event.keyCode: " + event.keyCode);
-        var stuff = $(".selected");
-        console.log("Stuff: ", stuff);
-
         var plugin, $me, suggestions, selected, msg;
         // the ik_suggest plugin
         plugin = event.data.plugin;
@@ -137,7 +132,6 @@
         plugin.list.empty();
 
         suggestions = plugin.getSuggestions(plugin.options.source, $me.val());
-        if (debug) console.log("suggestions: ", suggestions);
         if (suggestions.length > 1) {
             for (var i = 0, l = suggestions.length; i < l; i++) {
                 $('<li/>').html(suggestions[i])
@@ -153,22 +147,16 @@
         switch (event.keyCode) {
             case ik_utils.keys.down: // select next suggestion from list   
                 selected = plugin.list.find('.selected');
-                console.log("selected: ", selected);
-                console.log("selected.length: " + selected.length);
                 if (selected.length) {
                     msg = selected.removeClass('selected').next().addClass('selected').text();
-                    console.log("if msg: " + msg);
                 } else {
                     premsg = plugin.list.find('li:first').text();
-                    console.log("pre-msg: ", premsg);
                     msg = plugin.list.find('li:first').addClass('selected').text();
-                    console.log("else msg: " + msg);
                 }
                 plugin.notify.text(msg); // add suggestion text to live region to be read by screen reader
                 break;
             case ik_utils.keys.up: // select previous suggestion from list
                 selected = plugin.list.find('.selected');
-                console.log("selected", selected);
                 if (selected.length) {
                     msg = selected.removeClass('selected').prev().addClass('selected').text();
                 }
@@ -193,7 +181,6 @@
 
                 break;
         }
-        if (debug) console.log("exiting onkeyup()")
     };
 
     /** 
