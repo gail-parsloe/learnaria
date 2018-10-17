@@ -34,30 +34,52 @@
         plugin = this;
 
         $elem.attr({
-            'id': id
+            'id': id,
+            'role': 'region' // add the accordion to the landmarked regions
         }).addClass('ik_accordion');
 
-        this.headers = $elem.children('dt').each(function (i, el) {
-            var $me, $btn;
+        $elem.attr({
+            'aria-multiselectable': !this.options.autoCollapse
+        }); // define if more than one panel can be expanded
 
-            $me = $(el);
-            $btn = $('<div/>').attr({
-                    'id': id + '_btn_' + i
-                })
-                .addClass('button')
-                .html($me.html())
-                .on('click', {
-                    'plugin': plugin
-                }, plugin.togglePanel);
 
-            $me.empty().append($btn); // wrap content of each header in an element with role button
-        });
+
+        this.headers = $elem.children('dt')
+            .attr({
+                'role': 'heading'
+            }) // set heading role for each accordion header
+            .each(function (i, el) {
+                var $me, $btn;
+
+                $me = $(el);
+                $btn = $('<div/>').attr({
+                        'id': id + '_btn_' + i,
+                        'role': 'button',
+                        'aria-controls': id + '_panel_' + i, // associate button with corresponding panel
+                        'aria-expanded': false, // toggle expanded state
+                        'tabindex': 0 //add keyboard focus
+
+                    })
+                    .addClass('button')
+                    .html($me.html())
+                    .on('keydown', {
+                        'plugin': plugin
+                    }, plugin.onKeyDown) // enable keyboard navigation
+                    .on('click', {
+                        'plugin': plugin
+                    }, plugin.togglePanel);
+
+                $me.empty().append($btn); // wrap content of each header in an element with role button
+            });
 
         this.panels = $elem.children('dd').each(function (i, el) {
             var $me = $(this),
                 id = $elem.attr('id') + '_panel_' + i;
             $me.attr({
-                'id': id
+                'id': id,
+                'role': 'region', // add role region to each panel
+                'aria-hidden': true, // mark all panels as hidden
+                'tabindex': 0 // add panels into the tab order
             });
         }).hide();
 
