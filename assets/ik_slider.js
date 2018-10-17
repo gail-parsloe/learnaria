@@ -75,7 +75,8 @@
                     'aria-valuemin': plugin.options.minValue, // set slider minimum value
                     'aria-valuemax': plugin.options.maxValue, // set slider maximum value
                     'aria-valuenow': plugin.options.minValue, // set slider current value
-                    'aria-describedby': id + '_instructions' // add description */
+                    // 'aria-describedby': id + '_instructions' // Not working in ChromeVox */
+                    'aria-labelledby': id + '_instructions' // Use for assignment instead of describedby to avoid CV issues. adds description */
                 })
                 .addClass('ik_knob')
                 .on('keydown', {
