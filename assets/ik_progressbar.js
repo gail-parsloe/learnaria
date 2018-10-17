@@ -42,11 +42,11 @@
                 // associate the bar with the instructions so when the bar does receive focus the instructions are read
                 'aria-describedby': id + '_instructions' // add aria-describedby attribute
             })
-            .addClass('ik_progressbar');
-        // add keyboard access to the bar
-        .on('keydown.ik', {
-            'plugin': this
-        }, this.onKeyDown);
+            .addClass('ik_progressbar')
+            // add keyboard access to the bar
+            .on('keydown.ik', {
+                'plugin': this
+            }, this.onKeyDown);
 
         this.fill = $('<div/>')
             .addClass('ik_fill');
@@ -72,6 +72,28 @@
             .addClass('ik_track')
             .append(this.fill)
             .appendTo(this.element);
+
+    };
+
+    /**
+     * Handles kedown event on progressbar element.
+     *
+     * @param {Object} event - Keyboard event.
+     * @param {object} event.data - Event data.
+     * @param {object} event.data.plugin - Reference to plugin.
+     */
+    Plugin.prototype.onKeyDown = function (event) {
+
+        switch (event.keyCode) {
+
+            case ik_utils.keys.space:
+            case ik_utils.keys.enter:
+                event.preventDefault();
+                event.stopPropagation();
+                event.data.plugin.notify();
+                break;
+        }
+
 
     };
 
