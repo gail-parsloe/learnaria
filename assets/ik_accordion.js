@@ -131,15 +131,15 @@
         } else { // toggle current panel depending on the state
 
             isVisible = !!$panel.is(':visible');
-            if (isVisible) {
-                $btn.attr({
-                    'aria-expanded': true // toggle expanded state
-                })
-            } else {
-                $btn.attr({
-                    'aria-expanded': false // toggle expanded state
-                })
-            }
+//            if (isVisible) {
+//                $btn.attr({
+//                    'aria-expanded': true // toggle expanded state
+//                })
+//            } else {
+//                $btn.attr({
+//                    'aria-expanded': false // toggle expanded state
+//                })
+//            }
             $panel.slideToggle({
                 duration: plugin.options.animationSpeed
             });
