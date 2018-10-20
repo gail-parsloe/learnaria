@@ -1,13 +1,54 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8" />
-    <title>App</title>
+    <title>Aria - Button Play</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script charset="utf-8" src="js/app.js"></script>
-    <link rel="stylesheet" href="css/app.css" />
+    <script charset="utf-8" src="assets/gp_buttons.js"></script>
+    <link rel="stylesheet" href="assets/gp_buttons.css" />
 </head>
+
 <body>
+
     <h1>Hello!</h1>
+    <input>
+    <h2>Regular html button</h2>
+    <p id="instructions" style="border-bottom: purple 1px dashed"></p>
+    <button type="button" onclick="console.log('button button clicked')">I am a regular html5 button.</button>
+    <hr>
+    <h2><button>Heydon Pickering Example -Button inside heading tag</button></h2>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur laoreet massa. Nam eu porta dolor. Vestibulum pulvinar lorem et nisl tempor lacinia.</p>
+        <p>Cras mi nisl, semper ut gravida sed, vulputate vel mauris. In dignissim aliquet fermentum. Donec arcu nunc, tempor sed nunc id, dapibus ornare dolor.</p>
+    </div>
+    <hr>
+    <hr>
+    <h2>Button made with a div</h2>
+    <p id="instructions" style="border-bottom: purple 1px dashed"></p>
+    <div class="myButton" onclick="console.log('div button clicked')">I am a div button.</div>
+    <hr>
+    <h2>Button made with an a href</h2>
+    <a href="#" class="myButton" onclick="console.log('href button clicked')">red</a>
+    <hr>
+    <h2>HTML Forms</h2>
+
+    <form action="/action_page.php">
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey">
+        <br> Last name:<br>
+        <input type="text" name="lastname" value="Mouse">
+        <br><br>
+        <input type="submit" value="Submit" onclick="console.log('submit button clicked')">
+    </form>
+
+    <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+    <script>
+        function changeInstructions(newInstructions) {
+            var instructions = newInstructions;
+            document.getElementById('instructions').innerHTML = instructions;
+        }
+    </script>
 </body>
+
 </html>
